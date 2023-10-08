@@ -11,7 +11,7 @@ const flash=require('connect-flash');
 const passport=require("passport");
 const LocalStrategy=require("passport-local");
 const User=require("./models/User");
-const port = 3000
+const port = 8080
 const seedProducts=require('./seed');
 
 const dbURL='mongodb+srv://Programmer_om:User%404104@cluster0.owhutqv.mongodb.net/Products?retryWrites=true&w=majority';
