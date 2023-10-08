@@ -11,7 +11,7 @@ const flash=require('connect-flash');
 const passport=require("passport");
 const LocalStrategy=require("passport-local");
 const User=require("./models/User");
-const port = 8080
+const port = 10000
 const seedProducts=require('./seed');
 
 const dbURL='mongodb+srv://Programmer_om:User%404104@cluster0.owhutqv.mongodb.net/Products?retryWrites=true&w=majority';
@@ -76,7 +76,7 @@ app.use(cartRoutes);
 
 
 
-app.listen(port, () => console.log(`Server listening at http://localhost:8080/login`.red))
+app.listen(port, () => console.log(`Server listening at http://localhost:10000/login`.red))
 
 
 
