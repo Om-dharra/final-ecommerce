@@ -1,0 +1,79 @@
+<% layout('layout/boilerplate') -%>
+<style>
+    
+    .col-lg-6{
+        margin-top: 100px;
+        display: flex;
+        flex-wrap: wrap;
+        
+        flex-direction: column;
+       
+    }
+    .btn{
+        display: flex;
+        flex-direction: row;
+
+    }
+</style>
+<div style="margin-left:20px;" class="row">
+    <div class="col-lg-6">
+        <div class="col-md-6 col-lg-3">
+            <div class="card" style="width: 18rem;">
+                <img src="<%= product.img %>" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title"><%= product.name %></h5>
+                  <p class="card-text"><%= product.desc %></p>
+                  <h5> $: <%= product.price %></h5>
+                  <a style="text-decoration: none;color:blue;" href="/products/<%= product._id%>/edit">edit</a>
+                  <form action="/products/<%= product._id%>/cart" method="post">
+                    <button type="submit" class="btn btn-success">Add to cart</button>
+                  </form>
+                  <form action="/products/<%= product._id%>?_method=DELETE" method="post">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                  </form>
+                </div>
+              </div>
+        </div>
+
+    </div>
+    <div class="col-lg-6">
+        <h1>Add a review</h1>
+        <form action="/products/<%= product._id %>/review" method="post">
+            <div class="mb-3">
+                <label for="rating" class="form-label">Rating</label>
+                <input type="range" name="rating" id="rating" class="form-control" min="0" max="5" step="1">
+            </div>
+            <div class="mb-3">
+                <label for="rating" class="form-label">Comment</label>
+                <textarea class="form-control" name="comment" id="comment" rows="3"></textarea>
+    
+            </div>
+            <button type="submit" class="btn btn-sm btn-success">Add a review</button>
+
+        </form>
+        <br><br><br>
+        <div class="mb-3">
+
+            <% for(let review of product.reviews){ %>
+                <% let user=1 %>
+                <h2>user :<%= user %></h2>
+                <% user+=1 %>
+                <div class="card mb-3" style="width: 18rem;">
+                    <div class="card-body">
+                      <h5 class="card-title">Rating: <%= review.rating %></h5>
+                      
+                      <p class="card-text">Comment: <%= review.comment %></p>
+                      
+                    </div>
+                  </div>
+                  <br>
+
+            <% } %>
+        </div>
+        
+         
+
+    </div>
+</div>
+
+

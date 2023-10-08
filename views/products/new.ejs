@@ -1,0 +1,30 @@
+<% layout('layout/boilerplate') -%>
+
+<div class="border p-3 mx-auto w-50 mt-5">
+    <h1>Add a new Product</h1>
+    <form action="/products" method="post">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label><br>
+            <input type="text" name="name" id="name" placeholder="Product name" size="70">
+        </div>
+        <div class="mb-3">
+            <label for="price">Price</label><br>
+            <input type="number" name="price" id="price" placeholder="Product price" size="70" min="0">
+        </div>
+        <div class="mb-3">
+            <label for="img" class="form-label">Image url</label><br>
+            <input type="text" name="img" id="img" placeholder="Product image" size="70">
+        </div>
+        
+        <div class="mb-3">
+            <label for="desc" class="form-label">Description</label><br>
+            <textarea class="form-control" name="desc" id="desc" rows="3"></textarea>
+        </div>
+        
+        <button type="submit" class="btn btn-success btn-sm">Submit</button>
+    </form>
+
+</div>
+
+
+    
